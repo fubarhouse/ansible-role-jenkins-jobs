@@ -17,7 +17,7 @@ An Ansible role for deploying Jenkins job configuration files!
 Requirements
 ------------
 
-* git)
+* git
 
 *Notes*:
 
