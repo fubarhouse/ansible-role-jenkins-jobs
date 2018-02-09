@@ -13,7 +13,7 @@
 - name: Jenkins Jobs | Remove configured jobs
   file:
     path: "{{ jenkins_jobs_directory }}/{{ item.folder }}"
-    state: touch
+    state: absent
   with_items:
     - "{{ jenkins_jobs }}"
   when: item.state == "absent"
