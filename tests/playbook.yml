@@ -1,5 +1,42 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: all
+  vars:
+    jenkins_directory: /root/jenkins
+    jenkins_job_owner: root
+    jenkins_job_group: root
+    jenkins_repository: https://github.com/mulesoft-labs/jenkins-job-examples.git
+    jenkins_tempdir: /tmp/jenkins_jobs
+    jenkins_jobs:
+      - name: Deploy Test Application
+        folder: deploy-test-app
+        state: present
+        files:
+          - config.xml
+    jenkins_config_files: []
+  pre_tasks:
+    - name: Create the destination directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        mode: 0755
+      with_items:
+        - "{{ jenkins_directory }}"
+        - "{{ jenkins_directory }}/jobs"
+    - name: Update yum cache.
+      yum:
+        update_cache: yes
+        state: latest
+      changed_when: false
+      when: ansible_os_family == 'RedHat'
+      failed_when: false
+
+    - name: Update apt cache.
+      apt:
+        update_cache: yes
+        cache_valid_time: 600
+      changed_when: false
+      when: ansible_os_family == 'Debian'
+      failed_when: false
   roles:
-    - fubarhouse.jenkinsjobs
+    - role_under_test
