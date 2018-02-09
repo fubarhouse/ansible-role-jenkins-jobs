@@ -1,2 +1,12 @@
 ---
 # defaults file for fubarhouse.jenkinsjobs
+
+jenkins_jobs_directory: /var/lib/jenkins/jobs
+jenkins_repository: https://github.com/mulesoft-labs/jenkins-job-examples.git
+jenkins_tempdir: /tmp/jenkins_jobs
+jenkins_jobs:
+  - name: Deploy Test Application
+    folder: deploy-test-app
+    state: present
+    files:
+      - config.yml
