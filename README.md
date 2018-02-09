@@ -2,7 +2,7 @@ Ansible Role: Jenkins Jobs
 =========
 
 [![Build Status](https://travis-ci.org/fubarhouse/ansible-role-jenkinsjobs.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-golang)
-![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
+![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg)
 [![Ansible Galaxy](https://img.shields.io/ansible/role/0000.svg)](https://galaxy.ansible.com/fubarhouse/jenkinsjobs)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/ansible-role-jenkinsjobs/master/LICENSE)
 
