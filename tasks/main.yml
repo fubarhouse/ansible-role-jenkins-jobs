@@ -43,8 +43,8 @@
     owner: "{{ jenkins_job_owner }}"
     group: "{{ jenkins_job_group }}"
   with_subelements:
-    - jenkins_jobs
-    - files
+    - "{{ jenkins_jobs }}"
+    - "{{ files }}"
   when:
     - item.0.state is defined
     - item.0.folder is defined
