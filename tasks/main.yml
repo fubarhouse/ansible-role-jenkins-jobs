@@ -1,2 +1,27 @@
 ---
 # tasks file for fubarhouse.jenkinsjobs
+
+- name: Jenkins Jobs | Clone repository
+  git:
+    repo: "{{ jenkins_repository }}"
+    dest: "{{ jenkins_tempdir }}"
+    clone: yes
+    update: yes
+    force: no
+
+- name: Jenkins Jobs | Remove undesired jobs
+  file:
+    path: /etc/foo.conf
+    state: touch
+  with_nested:
+    - "{{ jenkins_jobs }}"
+  when: item[0].state == absent
+
+- name: Jenkins Jobs | Copy the jobs
+  copy:
+    src: "{{ jenkins_tempdir }}/{{ item[0].folder }}/{{ item[1] }}"
+    dest: "{{ jenkins_jobs_directory }}/{{ item[0].folder }}/{{ item[1] }}"
+  with_nested:
+    - "{{ jenkins_jobs }}"
+    - "{{ item[0].files }}"
+  when: item[0].state == present
