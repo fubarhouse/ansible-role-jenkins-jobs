@@ -2,8 +2,8 @@
 # defaults file for fubarhouse.jenkinsjobs
 
 jenkins_directory: /var/lib/jenkins
-jenkins_job_owner: jenkins
-jenkins_job_group: jenkins
+jenkins_job_owner: root
+jenkins_job_group: root
 jenkins_repository: https://github.com/mulesoft-labs/jenkins-job-examples.git
 jenkins_tempdir: /tmp/jenkins_jobs
 jenkins_jobs:
