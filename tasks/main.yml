@@ -18,7 +18,7 @@
     - "{{ jenkins_jobs }}"
   when:
     - item.state is defined
-    - item.0.folder is defined
+    - item.folder is defined
     - item.state == "absent"
 
 - name: Jenkins Jobs | Create directories for jobs
@@ -32,7 +32,7 @@
     - "{{ jenkins_jobs }}"
   when:
     - item.state is defined
-    - item.0.folder is defined
+    - item.folder is defined
     - item.state == "present"
 
 - name: Jenkins Jobs | Copy configured jobs
