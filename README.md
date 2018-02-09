@@ -19,6 +19,10 @@ Role Variables
 --------------
 
 ```yaml
+# The owner of the configured files
+jenkins_job_owner: jenkins
+# The group of the configured files
+jenkins_job_group: jenkins
 # The path to the directory that stores Jenkins jobs.
 jenkins_jobs_directory: /var/lib/jenkins/jobs
 # The repository that contains your Jenkins jobs
@@ -51,7 +55,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```yaml
 - hosts: all
   roles:
-     - role: fubarhouse.jenkinsjobs
+    - role: fubarhouse.jenkinsjobs
 ```
 
 License

@@ -25,6 +25,9 @@
   file:
     path: "{{ jenkins_jobs_directory }}/{{ item.folder }}"
     state: directory
+    mode: 0755
+    owner: "{{ jenkins_job_owner }}"
+    group: "{{ jenkins_job_group }}"
   with_items:
     - "{{ jenkins_jobs }}"
   when:
@@ -36,6 +39,9 @@
   copy:
     src: "{{ jenkins_tempdir }}/{{ item.0.folder }}/{{ item.1 }}"
     dest: "{{ jenkins_jobs_directory }}/{{ item.0.folder }}/{{ item.1 }}"
+    mode: 0755
+    owner: "{{ jenkins_job_owner }}"
+    group: "{{ jenkins_job_group }}"
   with_subelements:
     - jenkins_jobs
     - files
