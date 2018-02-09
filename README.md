@@ -19,6 +19,8 @@ Role Variables
 --------------
 
 ```yaml
+# The path to the directory that stores Jenkins jobs.
+jenkins_jobs_directory: /var/lib/jenkins/jobs
 # The repository that contains your Jenkins jobs
 jenkins_repository: git@github.org/user/repo.git
 # The path to where the repository should be cloned to
