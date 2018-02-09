@@ -1,38 +1,64 @@
-Role Name
+Ansible Role: Jenkins Jobs
 =========
 
-A brief description of the role goes here.
+[![Build Status](https://travis-ci.org/fubarhouse/ansible-role-jenkinsjobs.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-golang)
+![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/0000.svg)](https://galaxy.ansible.com/fubarhouse/jenkinsjobs)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/ansible-role-jenkinsjobs/master/LICENSE)
+
+An Ansible role for deploying Jenkins job configuration files!
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+* git
+
+*Note: As this role does not communicate with Jenkins, Jenkins is not required.*
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```yaml
+# The repository that contains your Jenkins jobs
+jenkins_repository: git@github.org/user/repo.git
+# The path to where the repository should be cloned to
+jenkins_tempdir: /tmp/jenkins_jobs
+# All of your desired Jenkins jobs in a structured format
+jenkins_jobs:
+  # The name associated to the job.
+  - name: Build site
+    # The folder name where configuration files exist.
+    folder: Build site
+    # The state of the job, either present or absent.
+    state: present
+    # An index of all the files you need managed.
+    files:
+      - config.yml
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yaml
+- hosts: all
+  roles:
+     - role: fubarhouse.jenkinsjobs
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+This role was created in 2017 by [Karl Hepworth](https://twitter.com/fubarhouse).
