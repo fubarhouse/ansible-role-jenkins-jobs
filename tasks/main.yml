@@ -43,8 +43,8 @@
     owner: "{{ jenkins_job_owner }}"
     group: "{{ jenkins_job_group }}"
   with_subelements:
-    - "{{ jenkins_jobs }}"
-    - "{{ files }}"
+    - jenkins_jobs
+    - files
   when:
     - item.0.state is defined
     - item.0.folder is defined
@@ -58,7 +58,8 @@
   with_items:
     - jenkins_config_files
   when:
-    - jenkins_config_files
+    - item.filename is defined
+    - item.state is defined
     - item.state == "absent"
 
 - name: Jenkins Jobs | Copy configured files
@@ -71,5 +72,6 @@
   with_items:
     - jenkins_config_files
   when:
-    - jenkins_config_files
+    - item.filename is defined
+    - item.state is defined
     - item.state == "present"
