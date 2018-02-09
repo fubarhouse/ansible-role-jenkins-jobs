@@ -9,4 +9,4 @@ jenkins_jobs:
     folder: deploy-test-app
     state: present
     files:
-      - config.yml
+      - config.xml
