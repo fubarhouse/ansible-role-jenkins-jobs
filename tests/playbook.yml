@@ -38,5 +38,11 @@
       changed_when: false
       when: ansible_os_family == 'Debian'
       failed_when: false
+
+    - name: Install dependencies
+      package:
+        name: git
+        state: installed
+
   roles:
     - role_under_test
