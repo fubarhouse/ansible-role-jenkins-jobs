@@ -16,7 +16,10 @@
     state: absent
   with_items:
     - "{{ jenkins_jobs }}"
-  when: item.state == "absent"
+  when:
+    - item.state is defined
+    - item.0.folder is defined
+    - item.state == "absent"
 
 - name: Jenkins Jobs | Create directories for jobs
   file:
@@ -24,7 +27,10 @@
     state: directory
   with_items:
     - "{{ jenkins_jobs }}"
-  when: item.state == "present"
+  when:
+    - item.state is defined
+    - item.0.folder is defined
+    - item.state == "present"
 
 - name: Jenkins Jobs | Copy configured jobs
   copy:
@@ -33,4 +39,8 @@
   with_subelements:
     - jenkins_jobs
     - files
-  when: item.0.state == "present"
+  when:
+    - item.0.state is defined
+    - item.0.folder is defined
+    - item.1 is defined
+    - item.0.state == "present"
