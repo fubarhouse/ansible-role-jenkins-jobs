@@ -1,9 +1,9 @@
 ---
 # defaults file for fubarhouse.jenkinsjobs
 
+jenkins_directory: /var/lib/jenkins
 jenkins_job_owner: jenkins
 jenkins_job_group: jenkins
-jenkins_jobs_directory: /var/lib/jenkins/jobs
 jenkins_repository: https://github.com/mulesoft-labs/jenkins-job-examples.git
 jenkins_tempdir: /tmp/jenkins_jobs
 jenkins_jobs:
@@ -12,3 +12,6 @@ jenkins_jobs:
     state: present
     files:
       - config.xml
+jenkins_config_files:
+  - filename: config.xml
+    state: present
