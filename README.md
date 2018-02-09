@@ -1,12 +1,18 @@
 Ansible Role: Jenkins Jobs
 =========
 
-[![Build Status](https://travis-ci.org/fubarhouse/ansible-role-jenkinsjobs.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-golang)
-![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg)
-[![Ansible Galaxy](https://img.shields.io/ansible/role/0000.svg)](https://galaxy.ansible.com/fubarhouse/jenkinsjobs)
+[![Build Status](https://travis-ci.org/fubarhouse/ansible-role-jenkins-jobs.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-jenkins-jobs)
+![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/0000.svg)](https://galaxy.ansible.com/fubarhouse/jenkins-jobs)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/ansible-role-jenkinsjobs/master/LICENSE)
 
 An Ansible role for deploying Jenkins job configuration files!
+
+* Clone a repository containing a set of configuration files.
+* Copy the job configuration files from the job folders to their destination.
+* Copy any arbitrary configuration files to their destination.
+* Jobs have a desired state, either present or absent.
+* Jobs affected by this role are explicitly stated, so you know what to expect.
 
 Requirements
 ------------
@@ -15,7 +21,7 @@ Requirements
 
 *Notes*:
 
-* As this role does not communicate with Jenkins, Jenkins is not required.
+* As this role does not communicate directly with Jenkins, Jenkins is not required.
 * This role clones a repository and copies expected file paths to a destination, nothing more.
 
 Role Variables
@@ -75,5 +81,4 @@ MIT
 Author Information
 ------------------
 
-
-This role was created in 2017 by [Karl Hepworth](https://twitter.com/fubarhouse).
+This role was conceived in 2017 and originally written in 2018 by [Karl Hepworth](https://twitter.com/fubarhouse).
