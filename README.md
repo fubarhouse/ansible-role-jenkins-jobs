@@ -28,8 +28,8 @@ Role Variables
 --------------
 
 ```yaml
-# The path to the directory that stores Jenkins jobs.
-jenkins_directory: /var/lib/jenkins/jobs
+# The path to the directory that stores Jenkins 'jobs' folder (the parent of the jobs folder).
+jenkins_directory: /var/lib/jenkins
 # The owner of the configured files
 jenkins_job_owner: root
 # The group of the configured files
