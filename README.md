@@ -6,13 +6,15 @@ Ansible Role: Jenkins Jobs
 [![Ansible Galaxy](https://img.shields.io/ansible/role/23791.svg?style=for-the-badge)](https://galaxy.ansible.com/fubarhouse/jenkins-jobs)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://raw.githubusercontent.com/fubarhouse/ansible-role-jenkinsjobs/master/LICENSE)
 
-An Ansible role for deploying Jenkins job configuration files!
+An Ansible role for deploying Jenkins job configuration files from source control!
 
 * Clone a repository containing a set of configuration files.
 * Copy the job configuration files from the job folders to their destination.
 * Copy any arbitrary configuration files to their destination.
 * Jobs have a desired state, either present or absent.
 * Jobs affected by this role are explicitly stated, so you know what to expect.
+* You can prevent a specific job from updating
+* You can specify the user to use git with, which is important considering SSH keys and private repositories.
 
 Requirements
 ------------
