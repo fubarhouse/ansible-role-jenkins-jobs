@@ -9,6 +9,7 @@
     clone: yes
     update: yes
     force: no
+    accept_hostkey: yes
   when: jenkins_clone_user is not defined
 
 - name: Jenkins Jobs | Clone/update repository as configured user
@@ -20,6 +21,7 @@
     clone: yes
     update: yes
     force: no
+    accept_hostkey: yes
   when: jenkins_clone_user is defined
 
 - name: Jenkins Jobs | Remove configured jobs
