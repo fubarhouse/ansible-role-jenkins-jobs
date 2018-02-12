@@ -70,7 +70,7 @@
     path: "{{ jenkins_directory }}/{{ item.filename }}"
     state: absent
   with_items:
-    - jenkins_config_files
+    - "{{ jenkins_config_files }}"
   when:
     - item.filename is defined
     - item.state is defined
@@ -84,7 +84,7 @@
     owner: "{{ jenkins_job_owner }}"
     group: "{{ jenkins_job_group }}"
   with_items:
-    - jenkins_config_files
+    - "{{ jenkins_config_files }}"
   when:
     - item.filename is defined
     - item.state is defined
