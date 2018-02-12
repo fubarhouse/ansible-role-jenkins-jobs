@@ -28,6 +28,9 @@ Role Variables
 --------------
 
 ```yaml
+# The user with ssh access to the repository configured.
+# If this is not specified, it will not be used.
+jenkins_clone_user: vagrant 
 # The path to the directory that stores Jenkins 'jobs' folder (the parent of the jobs folder).
 jenkins_directory: /var/lib/jenkins
 # The owner of the configured files

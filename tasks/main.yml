@@ -2,13 +2,25 @@
 ---
 # tasks file for fubarhouse.jenkinsjobs
 
-- name: Jenkins Jobs | Clone/update repository
+- name: Jenkins Jobs | Clone/update repository as current user
   git:
     repo: "{{ jenkins_repository }}"
     dest: "{{ jenkins_tempdir }}"
     clone: yes
     update: yes
     force: no
+  when: jenkins_clone_user is not defined
+
+- name: Jenkins Jobs | Clone/update repository as configured user
+  become: no
+  become_user: "{{ jenkins_clone_user }}"
+  git:
+    repo: "{{ jenkins_repository }}"
+    dest: "{{ jenkins_tempdir }}"
+    clone: yes
+    update: yes
+    force: no
+  when: jenkins_clone_user is defined
 
 - name: Jenkins Jobs | Remove configured jobs
   file:
