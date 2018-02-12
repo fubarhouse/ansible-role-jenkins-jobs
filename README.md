@@ -17,12 +17,7 @@ An Ansible role for deploying Jenkins job configuration files!
 Requirements
 ------------
 
-* git
-
-*Notes*:
-
-* As this role does not communicate directly with Jenkins, Jenkins is not required.
-* This role clones a repository and copies expected file paths to a destination, nothing more.
+None.
 
 Role Variables
 --------------
