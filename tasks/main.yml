@@ -62,8 +62,10 @@
   when:
     - item.0.state is defined
     - item.0.folder is defined
+    - item.0.update is defined
     - item.1 is defined
     - item.0.state == "present"
+    - item.0.update == "yes"
 
 - name: Jenkins Jobs | Remove configured files
   file:

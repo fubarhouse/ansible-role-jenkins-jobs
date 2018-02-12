@@ -49,6 +49,8 @@ jenkins_jobs:
     folder: Build site
     # The state of the job, either present or absent.
     state: present
+    # Weather you want to update the file after the initial copy or not.
+    update: yes
     # An index of all the files you need managed.
     files:
       - config.yml
