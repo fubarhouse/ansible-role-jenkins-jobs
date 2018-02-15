@@ -57,6 +57,8 @@ jenkins_config_files:
   - filename: config.xml
   # The desired state of that file, either present or absent
     state: present
+  # Weather you want to update the file after the initial copy or not.
+    update: yes
 ```
 
 Dependencies
