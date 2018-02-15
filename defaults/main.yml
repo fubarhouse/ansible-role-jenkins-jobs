@@ -4,14 +4,7 @@
 jenkins_directory: /var/lib/jenkins
 jenkins_job_owner: root
 jenkins_job_group: root
-jenkins_repository: https://github.com/mulesoft-labs/jenkins-job-examples.git
+jenkins_repository: ""
 jenkins_tempdir: /tmp/jenkins_jobs
-jenkins_jobs:
-  - name: Deploy Test Application
-    folder: deploy-test-app
-    state: present
-    files:
-      - config.xml
-jenkins_config_files:
-  - filename: config.xml
-    state: present
+jenkins_jobs: []
+jenkins_config_files: []
