@@ -94,3 +94,49 @@
     - item.state is defined
     - item.state == "present"
     - item.update
+
+- name: Jenkins Jobs | Create directories for workspaces
+  file:
+    path: "{{ jenkins_directory }}/workspace"
+    state: directory
+    mode: 0755
+    owner: "{{ jenkins_job_owner }}"
+    group: "{{ jenkins_job_group }}"
+
+- name: Jenkins Jobs | Clone workspaces as current user
+  git:
+    repo: "{{ item.workspace_git }}"
+    dest: "{{ jenkins_directory }}/workspace/{{ item.name }}"
+    clone: yes
+    update: yes
+    force: no
+    accept_hostkey: yes
+  with_items:
+    - "{{ jenkins_jobs }}"
+  when:
+    - item.name is defined
+    - item.workspace_git is defined
+    - item.state is defined
+    - item.state == "present"
+    - jenkins_clone_user is not defined
+    - item.update
+
+- name: Jenkins Jobs | Clone workspaces as configured user
+  become: no
+  become_user: "{{ jenkins_clone_user }}"
+  git:
+    repo: "{{ item.workspace_git }}"
+    dest: "{{ jenkins_directory }}/workspace/{{ item.name }}"
+    clone: yes
+    update: yes
+    force: no
+    accept_hostkey: yes
+  with_items:
+    - "{{ jenkins_jobs }}"
+  when:
+    - item.name is defined
+    - item.workspace_git is defined
+    - item.state is defined
+    - item.state == "present"
+    - jenkins_clone_user is defined
+    - item.update

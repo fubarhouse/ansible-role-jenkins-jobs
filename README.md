@@ -48,6 +48,8 @@ jenkins_jobs:
     state: present
     # Weather you want to update the file after the initial copy or not.
     update: yes
+    # If a workspace is needed for the job, we can specify a git path.
+    workspace_git: git@github.org/user/repo.git
     # An index of all the files you need managed.
     files:
       - config.yml

@@ -10,6 +10,7 @@
       - name: Deploy Test Application
         folder: deploy-test-app
         state: present
+        workspace_git: https://github.com/mulesoft-labs/jenkins-job-examples.git
         files:
           - config.xml
     jenkins_config_files: []
